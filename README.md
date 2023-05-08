@@ -1,1 +1,1 @@
-# getJobInfo
+npm install expo-font axios react-native-dotenv
