@@ -1,14 +1,34 @@
-import React from 'react'
-import { View, Text } from 'react-native'
-
-import styles from './popularjobcard.style'
-
-const PopularJobCard = () => {
+import React from "react";
+import { View, Text, Touchable } from "react-native";
+import { Image } from "react-native";
+import styles from "./popularjobcard.style";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { checkImageURL } from "../../../../utils";
+const PopularJobCard = ({ item, selectedJob, handleCardPress }) => {
+  console.log("item is: ", item)
   return (
-    <View>
-      <Text>PopularJobCard</Text>
-    </View>
-  )
-}
+    <TouchableOpacity
+      style={styles.container(selectedJob, item)}
+      onPress={() => handleCardPress(item)}
+    >
+      <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
+        <Image
+          source={{ uri: checkImageURL(item.employer_logo) ?item.employer_logo : "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}}
+          resizeMode="contain"
+          style={styles.logoImage}
+        />
+      </TouchableOpacity>
+      <Text style={styles.companyName} numberOfLines={1}>
+        {item.employer_name}
+      </Text>
+      <View style={styles.infoContainer}>
+        <Text style={styles.jobName(selectedJob, item)} numberOfLines={1}>
+          {item.job_title}
+        </Text>
+        <Text style={styles.location}>{item.job_country}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
-export default PopularJobCard
+export default PopularJobCard;
