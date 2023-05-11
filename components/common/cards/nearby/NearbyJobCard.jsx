@@ -5,7 +5,6 @@ import styles from "./nearbyjobcard.style";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { checkImageURL } from "../../../../utils";
 const NearbyJobCard = ({ job, handleNavigate }) => {
-  // console.log("item is: ", item);
   return (
     <TouchableOpacity style={styles.container} onPress={handleNavigate}>
       <TouchableOpacity style={styles.logoContainer}>

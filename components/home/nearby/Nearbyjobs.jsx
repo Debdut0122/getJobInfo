@@ -3,9 +3,9 @@ import styles from "./nearbyjobs.style";
 import { COLORS, SIZES } from "../../../constants";
 import NearbyJobCard from "../../common/cards/nearby/NearbyJobCard";
 import useFetch from "../../../hook/useFetch";
-
+import { useRouter } from "expo-router";
 const Nearbyjobs = () => {
-  // const router = useRouter();
+  const router = useRouter();
   const { data, isLoading, error, refetch } = useFetch("search", {
     query: "React developer",
     num_pages: 1,
@@ -29,7 +29,7 @@ const Nearbyjobs = () => {
             <NearbyJobCard
               job={job}
               key={`nearby-job-${job?.job_id}`}
-              handleNavigate={() => router.push(`/job-details/${job?.job_id}`)}
+              handleNavigate={() => router.push(`/job-details/${job.job_id}`)}
             />
           ))
         )}

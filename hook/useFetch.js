@@ -13,7 +13,7 @@ import { useState, useEffect
         url: `https://jsearch.p.rapidapi.com/${endpoint}`
         ,
         headers: {
-          'X-RapidAPI-Key': '21dfb8fa34msh2941096745d3160p19385bjsn31d740aa4a73',
+          'X-RapidAPI-Key': '4cf211e717mshfc770767fac8e98p1bfc7cjsne318a1e45c79',
           'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
         },params: {
             ...query
